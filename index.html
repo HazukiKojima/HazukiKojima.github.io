@@ -1,23 +1,254 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>タダケンのEnjoy Tech GitHub Pages Sample</title>
-    <!--今回はサンプルのためMarxというシンプルでそれでいて小奇麗なCSSを使っています-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/marx/2.0.4/marx.css">
-  </head>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
-    <main>
-      <h1>GitHub Pages のサンプルです</h1>
-      
-      <a href="https://tadaken3.hatenablog.jp/"><button>タダケンのEnjoy Tech に行く</button></a>
-      <a href="https://irie-dev.co/"><button>入江開発室 に行く</button></a>
-      
-   </main>
-   <script>
-     <!--JavaSciptの動作確認のため、console.logに出力しています-->
-     console.log('JavaScriptも動きます');
-   </script>
-  </body>
+<style>
+body {
+    font-family: "Segoe UI", sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f2f4f8;
+    line-height: 1.8;
+}
+
+/* セクションをカード化 */
+section {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* 見出しを強調 */
+h2 {
+    font-size: 28px;
+    border-left: 6px solid #2c3e50;
+    padding-left: 12px;
+    margin-bottom: 30px;
+}
+
+/* 作品カード */
+.project-card {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* 左右バランス改善 */
+.project-info {
+    flex: 4;
+}
+
+.project-video {
+    flex: 6;
+}
+
+/* YouTube */
+.project-video iframe {
+    width: 100%;
+    height: 360px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* リスト見やすく */
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+/* スマホ対応 */
+@media (max-width: 900px) {
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-video iframe {
+        height: 240px;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<section>
+    <h2>作品一覧</h2>
+
+    <!-- 作品1 -->
+    <div class="project-card">
+
+        <div class="project-info">
+            <h3>地雷系女子、復讐します（Steam公開中）</h3>
+
+            <p>
+                <strong>Wishlist 3,000+</strong><br>
+                <strong>SNS総再生数 1,000,000+</strong><br>
+                <strong>ゲームイベントへの出展実績あり</strong><br>
+            </p>
+
+            <p><strong>ジャンル：</strong>3Dアクションゲーム</p>
+            <p><strong>開発環境：</strong>Unreal Engine 5 / C++</p>
+            <p><strong>制作期間：</strong>2026年2月 ～ 現在</p>
+            <p><strong>制作形態：</strong>チーム制作</p>
+
+            <h4>担当</h4>
+            <ul>
+                <li>プレイヤープログラム</li>
+                <li>企画</li>
+                <li>タスク管理</li>
+                <li>マーケティング</li>
+            </ul>
+
+            <h4>ポイント</h4>
+            <ul>
+                <li>プレイヤーアクションの実装を担当</li>
+                <li>企画立案とプログラム開発を並行して担当</li>
+                <li>SNS運用によるプロモーション活動を実施</li>
+                <li>コードレビューを行い開発進行をサポート</li>
+            </ul>
+        </div>
+
+        <div class="project-video">
+            <iframe
+                src="https://youtu.be/VWnDhJtogsU"
+                title="Action Game"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- 作品2 -->
+    <div class="project-card">
+
+        <div class="project-info">
+            <h3>Moon Waltz</h3>
+
+            <p><strong>ジャンル：</strong>3D避けゲーム</p>
+            <p><strong>開発環境：</strong>C++ / DirectX 12</p>
+            <p><strong>制作期間：</strong>2025年12月 ～ 2026年1月</p>
+            <p><strong>制作形態：</strong>個人制作</p>
+
+            <h4>ポイント</h4>
+            <ul>
+                <li>DirectX 12による描画パイプラインを構築</li>
+                <li>FBXモデルの読み込み・描画を実装</li>
+                <li>std::asyncを利用した非同期処理を実装</li>
+                <li>描画処理とゲームロジックを分離した設計</li>
+            </ul>
+        </div>
+
+        <div class="project-video">
+            <iframe
+                src="https://youtu.be/aUC9B0lC_mM"
+                title="DX12 Game"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- 作品3 -->
+    <div class="project-card">
+
+        <div class="project-info">
+            <h3>Devil Survival</h3>
+
+            <p><strong>ジャンル：</strong>シミュレーションサバイバル</p>
+            <p><strong>開発環境：</strong>Unreal Engine 5 / C++</p>
+            <p><strong>制作期間：</strong>2026年1月 ～ 2026年2月</p>
+            <p><strong>制作形態：</strong>個人制作</p>
+
+            <h4>技術的な見どころ</h4>
+            <ul>
+                <li>オブジェクトプールパターンを採用</li>
+                <li>敵スポーン管理システムの実装</li>
+                <li>敵100体出現時でも60FPSを維持</li>
+                <li>パフォーマンス計測を行いボトルネックを改善</li>
+            </ul>
+        </div>
+
+        <div class="project-video">
+            <iframe
+                src="https://youtu.be/vEYGNsJSMbw"
+                title="Survival Game"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- 作品4 -->
+    <div class="project-card">
+
+        <div class="project-info">
+            <h3>Silent Mare</h3>
+
+            <p><strong>ジャンル：</strong>ホラーゲーム</p>
+            <p><strong>開発環境：</strong>Unreal Engine 5</p>
+            <p><strong>制作期間：</strong>2025年11月</p>
+            <p><strong>制作形態：</strong>個人制作</p>
+
+            <p><strong>Steam公開予定</strong></p>
+
+            <h4>ポイント</h4>
+            <ul>
+                <li>敵AIの巡回・追跡システム</li>
+                <li>ホラー演出</li>
+                <li>ゲーム全体のバランス調整</li>
+            </ul>
+        </div>
+
+<div class="project-video">
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/W02rfi22h8U?si=pn9PPv4-gZRX3Jrw" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+</section>
+
+<section>
+    <h2>活動実績</h2>
+
+    <ul>
+        <li>学内ゲーム制作審査会
+            <ul>
+                <li>第1審査会 1位</li>
+                <li>第2審査会 1位</li>
+                <li>第3審査会 1位</li>
+                <li>第4審査会 2位</li>
+            </ul>
+        </li>
+
+        <li>Siv3D ゲームジャム バンダイナムコスタジオ杯 2025 参加</li>
+        <li>九州ゲームアイランド 出展<br>
+
+        <img src="images/kyushu_game_island.jpg" alt="九州ゲームアイランド会場写真"
+            style="width:100%; max-width:600px; margin-top:10px; border-radius:8px;">
+</li>
+    </ul>
+</section>
+
+</body>
 </html>
