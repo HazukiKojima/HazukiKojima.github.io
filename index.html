@@ -4,246 +4,691 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>小島 蓮絆 | Game Programmer Portfolio</title>
+
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Segoe UI", "Noto Sans JP", sans-serif;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background: #f2f4f8;
+    padding: 40px 24px;
+    background: #ffffff;
+    color: #111111;
     line-height: 1.8;
 }
 
-/* セクションをカード化 */
-section {
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
+/* =========================
+   自己紹介
+========================= */
 
-/* 見出しを強調 */
-h2 {
-    font-size: 28px;
-    border-left: 6px solid #2c3e50;
-    padding-left: 12px;
-    margin-bottom: 30px;
-}
-
-/* 作品カード */
-.project-card {
+.profile {
+    min-height: 500px;
     display: flex;
-    gap: 40px;
+    flex-direction: column;
+    justify-content: center;
+
+    border-bottom: 2px solid #111111;
+    margin-bottom: 70px;
+}
+
+.profile-label {
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    margin-bottom: 15px;
+}
+
+.profile h1 {
+    font-size: 48px;
+    margin: 0 0 25px;
+    letter-spacing: 0.05em;
+}
+
+.profile-info {
+    font-size: 19px;
+    line-height: 2;
+}
+
+.profile-info strong {
+    font-size: 21px;
+}
+
+.graduation {
+    margin-top: 25px;
+    font-size: 18px;
+}
+
+.role {
+    margin-top: 35px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.skills {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #555555;
+}
+
+
+/* =========================
+   セクション
+========================= */
+
+section {
+    margin-bottom: 80px;
+}
+
+h2 {
+    font-size: 30px;
+    border-left: 5px solid #111111;
+    padding-left: 14px;
+    margin: 0 0 35px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-top: 0;
+}
+
+h4 {
+    margin: 25px 0 8px;
+}
+
+
+/* =========================
+   メイン作品・プロジェクトカード
+========================= */
+
+.main-project {
+    border: 2px solid #111111;
+    padding: 30px;
     margin-bottom: 60px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid #e0e0e0;
 }
 
-/* 左右バランス改善 */
-.project-info {
-    flex: 4;
+.main-project-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #111111;
+    padding: 3px 10px;
+    margin-bottom: 15px;
 }
 
-.project-video {
-    flex: 6;
+.project-title {
+    font-size: 32px;
+    margin: 0 0 8px;
 }
 
-/* YouTube */
-.project-video iframe {
+.project-subtitle {
+    color: #555555;
+    font-size: 17px;
+    margin-bottom: 25px;
+}
+
+.project-media {
     width: 100%;
-    height: 360px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 25px 0 35px;
 }
 
-/* リスト見やすく */
+.project-media img {
+    width: 100%;
+    display: block;
+}
+
+.project-media video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    display: block;
+    background: #000000;
+}
+
+.project-description {
+    max-width: 900px;
+    margin-bottom: 25px;
+}
+
+.project-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-box {
+    border-top: 1px solid #111111;
+    padding-top: 15px;
+}
+
+.project-box h4 {
+    margin-top: 0;
+}
+
+
+/* =========================
+   技術タグ
+========================= */
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.tech {
+    border: 1px solid #111111;
+    padding: 4px 12px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   数字・実績表示
+========================= */
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 20px 0 30px;
+}
+
+.stat {
+    border-left: 3px solid #111111;
+    padding-left: 12px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 24px;
+}
+
+
+/* =========================
+   基本リスト仕様
+========================= */
+
 ul {
-    padding-left: 20px;
+    padding-left: 22px;
 }
 
 li {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
-/* スマホ対応 */
+
+/* =========================
+   活動実績
+========================= */
+
+.activity-list > li {
+    margin-bottom: 18px;
+}
+
+.activity-list ul {
+    margin-top: 5px;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
 @media (max-width: 900px) {
-    .project-card {
-        flex-direction: column;
+
+    body {
+        padding: 25px 18px;
     }
 
-    .project-video iframe {
-        height: 240px;
+    .profile {
+        min-height: 400px;
+    }
+
+    .profile h1 {
+        font-size: 36px;
+    }
+
+    .main-project {
+        padding: 20px;
+    }
+
+    .project-title {
+        font-size: 27px;
+    }
+
+    .project-info-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
-
 </head>
 
 <body>
 
+
+<header class="profile">
+
+    <div class="profile-label">
+        GAME PROGRAMMER PORTFOLIO
+    </div>
+
+    <h1>小島 蓮絆</h1>
+
+    <div class="profile-info">
+
+        <strong>バンタンゲームアカデミー</strong><br>
+
+        ゲーム学部<br>
+        ゲームプログラマー専攻 2年次
+
+    </div>
+
+    <div class="graduation">
+        2028年卒業予定
+    </div>
+
+    <div class="role">
+        Game Programmer
+    </div>
+
+    <div class="skills">
+        C++ / Unreal Engine 5 / DirectX 12
+    </div>
+
+</header>
+
+
 <section>
-    <h2>作品一覧</h2>
 
-    <!-- 作品1 -->
-    <div class="project-card">
+    <h2>チーム制作</h2>
 
-        <div class="project-info">
-            <h3>地雷系女子、復讐します（Steam公開中）</h3>
+    <div class="main-project">
 
-            <p>
-                <strong>Wishlist 3,000+</strong><br>
-                <strong>SNS総再生数 1,000,000+</strong><br>
-                <strong>ゲームイベントへの出展実績あり</strong><br>
-            </p>
+        <h3 class="project-title">
+            地雷系女子、復讐します
+        </h3>
 
-            <p><strong>ジャンル：</strong>3Dアクションゲーム</p>
-            <p><strong>開発環境：</strong>Unreal Engine 5 / C++</p>
-            <p><strong>制作期間：</strong>2026年2月 ～ 現在</p>
-            <p><strong>制作形態：</strong>チーム制作</p>
+        <p class="project-subtitle">
+            彼氏に浮気された地雷系女子が、浮気相手と彼氏に復讐するアクションゲーム。Steamでストアページを開設。<br>
+            企画とプレイヤープログラムを担当。
+        </p>
 
-            <h4>担当</h4>
-            <ul>
-                <li>プレイヤープログラム</li>
-                <li>企画</li>
-                <li>タスク管理</li>
-                <li>マーケティング</li>
-            </ul>
 
-            <h4>ポイント</h4>
-            <ul>
-                <li>プレイヤーアクションの実装を担当</li>
-                <li>企画立案とプログラム開発を並行して担当</li>
-                <li>SNS運用によるプロモーション活動を実施</li>
-                <li>コードレビューを行い開発進行をサポート</li>
-            </ul>
+        <div class="project-media">
+            <video controls poster="images/地雷系女子、復讐します.png">
+                <source src="videos/地雷系女子、復讐します.mp4" type="video/mp4">
+                お使いのブラウザは動画再生に対応していません。
+            </video>
         </div>
 
-        <div class="project-video">
-            <iframe
-                width="560" height="315" src="https://www.youtube.com/embed/VWnDhJtogsU?si=r6mOfaenvj6fOd58"
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
+        <div class="stats">
+            <div class="stat">
+                <strong>3,500+</strong>
+                Wishlist
+            </div>
+            <div class="stat">
+                <strong>1,500,000+</strong>
+                SNS総再生数
+            </div>
         </div>
 
-    </div>
 
-    <!-- 作品2 -->
-    <div class="project-card">
-
-        <div class="project-info">
-            <h3>Moon Waltz</h3>
-
-            <p><strong>ジャンル：</strong>3D避けゲーム</p>
-            <p><strong>開発環境：</strong>DirectX 12　/ C++</p>
-            <p><strong>制作期間：</strong>2025年12月 ～ 2026年1月</p>
-            <p><strong>制作形態：</strong>個人制作</p>
-
-            <h4>ポイント</h4>
-            <ul>
-                <li>DirectX 12による描画パイプラインを構築</li>
-                <li>FBXモデルの読み込み・描画を実装</li>
-                <li>std::asyncを利用した非同期処理を実装</li>
-                <li>描画処理とゲームロジックを分離した設計</li>
-            </ul>
+        <div class="tech-list">
+            <span class="tech">Unreal Engine 5</span>
+            <span class="tech">C++</span>
+            <span class="tech">Steam</span>
         </div>
 
-        <div class="project-video">
-            <iframe
-                width="560" height="315" src="https://www.youtube.com/embed/aUC9B0lC_mM?si=WRxbM3XhZlwBGb6_"
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-        </div>
 
-    </div>
+        <div class="project-info-grid">
 
-    <!-- 作品3 -->
-    <div class="project-card">
+            <div class="project-box">
+                <h4>基本情報</h4>
+                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> 3Dアクションゲーム</p>
+                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> UnrealEngine5 / C++</p>
+                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2026年2月 ～ 現在</p>
+                <p style="margin-bottom: 12px;"><strong>制作形態：</strong> チーム制作</p>
+                <ul>
+                    <li>企画</li>
+                    <li>プレイヤープログラム（移動・攻撃・回避・カウンター）</li>
+                    <li>SNSプロモーション・マーケティング運用</li>
+                </ul>
+            </div>
 
-        <div class="project-info">
-            <h3>Devil Survival</h3>
 
-            <p><strong>ジャンル：</strong>シミュレーションサバイバル</p>
-            <p><strong>開発環境：</strong>Unreal Engine 5 / C++</p>
-            <p><strong>制作期間：</strong>2026年1月 ～ 2026年2月</p>
-            <p><strong>制作形態：</strong>個人制作</p>
+            <div class="project-box">
+                <h4>技術・アピールポイント</h4>
+                <ul>
+                    <li>
+                        <strong>手触りと爽快感を追求したプレイヤー操作</strong><br>
+                        カメラ挙動・入力レスポンス・ヒット演出・モーション遷移などを組み合わせ、爽快感のある戦闘システムを実装
+                    </li>
+                    <li>
+                        <strong>拡張性と保守性を意識したプログラム設計</strong><br>
+                        DataAssetを活用してゲームデータとロジックを分離し、技の追加やステータス変更に柔軟に対応できるC++設計を実装。
+                    </li>
+                    <li>
+                        <strong>SNSを運用し、ゲームの知名度向上</strong><br>
+                        プログラマーとして開発を主導しつつ、SNS発信を積極的に実施。<br>
+                        <strong>総再生数150万回超・Steamウィッシュリスト数 3,500件以上</strong>を獲得。
+                    </li>
+                </ul>
+            </div>
 
-            <h4>ポイント</h4>
-            <ul>
-                <li>オブジェクトプールパターンを採用</li>
-                <li>敵スポーン管理システムの実装</li>
-                <li>敵100体出現時でも60FPSを維持</li>
-                <li>パフォーマンス計測を行いボトルネックを改善</li>
-            </ul>
-        </div>
-
-        <div class="project-video">
-            <iframe 
-                width="560" height="315" src="https://www.youtube.com/embed/vEYGNsJSMbw?si=e5WDZDgd2UhTF7bx"
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share
-                " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-
-            </iframe>
-        </div>
-
-    </div>
-
-    <!-- 作品4 -->
-    <div class="project-card">
-
-        <div class="project-info">
-            <h3>Silent Mare</h3>
-
-            <p><strong>ジャンル：</strong>ホラーゲーム</p>
-            <p><strong>開発環境：</strong>Unreal Engine 5</p>
-            <p><strong>制作期間：</strong>2025年11月</p>
-            <p><strong>制作形態：</strong>個人制作</p>
-
-            <p><strong>Steam公開予定</strong></p>
-
-            <h4>ポイント</h4>
-            <ul>
-                <li>敵AIの巡回・追跡システム</li>
-                <li>ホラー演出</li>
-                <li>ゲーム全体のバランス調整</li>
-            </ul>
-        </div>
-
-        <div class="project-video">
-        <iframe 
-            width="560" height="315" src="https://www.youtube.com/embed/W02rfi22h8U?si=pn9PPv4-gZRX3Jrw"
-            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share
-            " referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-        </iframe>
         </div>
 
     </div>
 
 </section>
 
+
 <section>
+
+    <h2>個人製作</h2>
+
+    <div class="main-project">
+
+        <h3 class="project-title">
+            DirectX 12 Rendering Project
+        </h3>
+
+        <p class="project-subtitle">
+            海と空を主軸としたグラフィックスエンジン
+        </p>
+
+
+        <div class="project-media">
+            <img
+                src="images/dx12_ocean.png"
+                alt="DirectX 12で制作中の海と空のレンダリング"
+            >
+        </div>
+
+
+        <div class="tech-list">
+            <span class="tech">DirectX 12</span>
+            <span class="tech">C++</span>
+            <span class="tech">HLSL</span>
+            <span class="tech">海面表現</span>
+            <span class="tech">HDR</span>
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <div class="project-box">
+                <h4>基本情報</h4>
+                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> グラフィックス・レンダリング作品</p>
+                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> DirectX 12 / C++ / HLSL</p>
+                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2026年6月 ～ 現在</p>
+                <p style="margin-bottom: 12px;"><strong>制作形態：</strong> 個人制作</p>
+            </div>
+
+
+            <div class="project-box">
+                <h4>技術・アピールポイント</h4>
+                <ul>
+                    <li>
+                        <strong>DirectX 12による描画パイプラインの構築</strong><br>
+                        コマンドリスト、ルートシグネチャ、ディスクリプタヒープ、PSOなどを扱い、基本的な描画処理を実装。
+                    </li>
+                    <li>
+                        <strong>シェーダーによる海面表現</strong><br>
+                        法線マップやUVの変化などを利用し、海面の動きや光の反射を表現。
+                    </li>
+                    <li>
+                        <strong>SkySphereによる空の描画</strong><br>
+                        SkySphereを実装し、HDRテクスチャを利用した空の描画を実装。
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="main-project">
+
+        <h3 class="project-title">
+            Moon Waltz
+        </h3>
+
+        <p class="project-subtitle">
+            DirectX 12で制作した3D弾幕回避アクション<br>
+            非同期処理や3Dモデルの読み込みなど、ゲームエンジンの基盤部分から実装。
+        </p>
+
+
+        <div class="project-media">
+            <video controls poster="images/MoonWaltz.png">
+                <source src="videos/MoonWaltz.mp4" type="video/mp4">
+                お使いのブラウザは動画再生に対応していません。
+            </video>
+        </div>
+
+        <div class="tech-list">
+            <span class="tech">DirectX 12</span>
+            <span class="tech">C++</span>
+            <span class="tech">FBX / Assimp</span>
+            <span class="tech">std::async</span>
+            <span class="tech">Multi-Threading</span>
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <div class="project-box">
+                <h4>基本情報</h4>
+                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> 3D弾幕回避ゲーム</p>
+                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> DirectX 12 / C++</p>
+                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2025年12月 ～ 2026年1月</p>
+                <p style="margin-bottom: 0;"><strong>制作形態：</strong> 個人制作</p>
+            </div>
+
+
+            <div class="project-box">
+                <h4>技術・アピールポイント</h4>
+                <ul>
+                    <li>
+                        <strong>描画処理とゲームロジックを分離した設計</strong><br>
+                        描画処理とゲームロジックを役割ごとに分離し、機能の追加や変更を行いやすい構成を意識して実装。
+                    </li>
+                         <strong>FBXモデルの読み込み</strong><br>
+                        Assimpを利用して3Dモデルデータを読み込み、ゲーム内でモデルを表示できるよう実装。
+                    <li>
+                        <strong>`std::async`を活用した非同期ロードと最適化</strong><br>
+                        モデルやテクスチャのロード処理を別スレッドへ切り出し、メインスレッドのフレーム落ちを防ぐ設計を適用。
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="main-project">
+
+        <h3 class="project-title">
+            Devil Survival
+        </h3>
+
+        <p class="project-subtitle">
+            大量に迫りくる敵を倒しながら生き延びるシミュレーションサバイバル<br>
+            描画とパフォーマンス最適化に重点を置いて制作。
+        </p>
+
+
+        <div class="project-media">
+            <video controls poster="images/DevilSurvival.png">
+                <source src="videos/DevilSurvival.mp4" type="video/mp4">
+                お使いのブラウザは動画再生に対応していません。
+            </video>
+        </div>
+
+
+        <div class="tech-list">
+            <span class="tech">Unreal Engine 5</span>
+            <span class="tech">C++</span>
+            <span class="tech">Object Pooling</span>
+            <span class="tech">Optimization / Profiling</span>
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <div class="project-box">
+                <h4>基本情報</h4>
+                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> シミュレーションサバイバル</p>
+                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> Unreal Engine 5 / C++</p>
+                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2026年1月 ～ 2026年2月</p>
+                <p style="margin-bottom: 0;"><strong>制作形態：</strong> 個人制作</p>
+            </div>
+
+
+            <div class="project-box">
+                <h4>技術ポイント & 工夫点</h4>
+                <ul>
+                    <li>
+                        <strong>オブジェクトプールパターンの実装</strong><br>
+                        大量に発生する敵・弾丸アクタの生成・破棄コストを抑えるため、<br>アクタを事前生成して再利用するプール管理システムを実装。
+                    </li>
+                    <li>
+                        <strong>敵100体以上の出現でも常時 60 FPS を維持</strong><br>
+                        tick処理の最小化やメッシュの最適化により、画面上に大量のオブジェクトが描画される状態でもパフォーマンスを維持。
+                    </li>
+                    <li>
+                        <strong>Unreal Insightsによるボトルネック特定</strong><br>
+                        CPU/GPUの処理時間を計測し、重いアセットやロジックの最適化を実施。
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="main-project">
+
+        <h3 class="project-title">
+            Silent Mare
+        </h3>
+
+        <p class="project-subtitle">
+            敵3体に対応しながら、家の中に隠された人形を10体焼却するゲーム<br>
+            ライティングと雰囲気にこだわった3Dホラー
+        </p>
+
+
+        <div class="project-media">
+            <video controls poster="images/SilentMare.png">
+                <source src="videos/SilentMare.mp4" type="video/mp4">
+                お使いのブラウザは動画再生に対応していません。
+            </video>
+        </div>
+
+
+        <div class="tech-list">
+            <span class="tech">Unreal Engine 5</span>
+            <span class="tech">AI / Behavior Tree</span>
+            <span class="tech">Lighting & PostProcess</span>
+        </div>
+
+
+        <div class="project-info-grid">
+
+            <div class="project-box">
+                <h4>基本情報</h4>
+                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> ホラーゲーム</p>
+                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> Unreal Engine 5</p>
+                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2025年11月</p>
+                <p style="margin-bottom: 8px;"><strong>制作形態：</strong> 個人制作</p>
+                <p style="margin-bottom: 0;"><strong>ステータス：</strong> Steam公開予定</p>
+            </div>
+
+
+            <div class="project-box">
+                <h4>技術ポイント & 工夫点</h4>
+                <ul>
+                    <li>
+                        <strong>敵AIの作り込み</strong><br>
+                        Behavior Treeを活用して敵AIを実装。<br>
+                        3種類の敵それぞれに異なる行動パターンを持たせ、プレイヤーを飽きさせないゲーム体験を設計。
+                    </li>
+                    <li>
+                        <strong>ポストプロセスとライティングによる恐怖演出</strong><br>
+                        ポストプロセスやライティングを調整し、暗闇や視界の制限を活かした不安感や恐怖感のある空間を演出。
+                    </li>
+                    <li>
+                        <strong>探索と恐怖感を組み合わせたゲーム設計</strong><br>
+                        敵から逃げながら探索することが求められるゲーム設計であり、常に緊張感が続くゲームプレイを実現。
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section>
+
     <h2>活動実績</h2>
 
-    <ul>
-        <li>学内ゲーム制作審査会
+    <ul class="activity-list">
+
+        <li>
+            <strong>学内ゲーム制作審査会 1年次</strong>
             <ul>
-                <li>第1審査会 1位</li>
-                <li>第2審査会 1位</li>
-                <li>第3審査会 1位</li>
-                <li>第4審査会 2位</li>
+                <li>第1審査会：1位</li>
+                <li>第2審査会：1位</li>
+                <li>第3審査会：1位</li>
+                <li>第4審査会：2位</li>
             </ul>
         </li>
 
-        <li>Siv3D ゲームジャム バンダイナムコスタジオ杯 2025 参加</li>
-        <li>九州ゲームアイランド 出展<br>
+        <li>
+            Siv3D ゲームジャム バンダイナムコスタジオ杯 2025 参加
+        </li>
 
-        <img src="images/kyushu_game_island.jpg" alt="九州ゲームアイランド会場写真"
-            style="width:100%; max-width:600px; margin-top:10px; border-radius:8px;">
-</li>
+        <li>
+            九州ゲームアイランド(2026) 出展
+        </li>
+
+        <li>
+            九州学生ゲーム大祭(2026) 出展
+        </li>
+
+        <!-- <li>
+            九州ゲームアイランド 出展<br>
+            <img
+                src="images/kyushu_game_island.jpg"
+                alt="九州ゲームアイランド会場写真"
+                style="
+                    width: 100%;
+                    max-width: 600px;
+                    margin-top: 10px;
+                    border-radius: 4px;
+                "
+            >
+        </li> -->
+
     </ul>
+
 </section>
 
 </body>
