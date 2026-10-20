@@ -266,6 +266,38 @@ li {
         grid-template-columns: 1fr;
     }
 }
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0 10px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 2px solid #111111;
+    color: #111111;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s;
+}
+
+.project-link:hover {
+    background: #111111;
+    color: #ffffff;
+}
+
+.project-link small {
+    font-size: 12px;
+    font-weight: normal;
+}
+
 </style>
 </head>
 
@@ -345,6 +377,16 @@ li {
             <span class="tech">Steam</span>
         </div>
 
+        <div class="project-links">
+            <a class="project-link" href="https://github.com/HazukiKojima/Jirai-kei-Girl-Vengeance" target="_blank" rel="noopener noreferrer">
+                GitHub <small>担当コード</small>
+            </a>
+            <a class="project-link" href="https://drive.google.com/drive/folders/1hubuDaj_3Q5TH_BMIwMOSfau-Os3BsWU?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                Google Drive <small>実行ファイル（.exe）</small>
+            </a>
+        </div>
+
+
 
         <div class="project-info-grid">
 
@@ -418,6 +460,16 @@ li {
             <span class="tech">海面表現</span>
             <span class="tech">HDR</span>
         </div>
+
+        <div class="project-links">
+            <a class="project-link" href="https://github.com/HazukiKojima/SkyMission" target="_blank" rel="noopener noreferrer">
+                GitHub <small>ソースコード</small>
+            </a>
+            <!-- <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
+                Google Drive <small>実行ファイル（.exe）</small>
+            </a> -->
+        </div>
+
 
 
         <div class="project-info-grid">
