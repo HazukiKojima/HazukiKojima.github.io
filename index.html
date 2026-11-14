@@ -434,76 +434,156 @@ li {
 
     <h2>個人製作</h2>
 
-    <div class="main-project">
+    <div class="main-project" id="skymission">
 
-        <h3 class="project-title">
-            DirectX 12 Rendering Project
-        </h3>
+    <h3 class="project-title">SkyMission</h3>
 
-        <p class="project-subtitle">
-            海と空を主軸としたグラフィックスエンジン
-        </p>
+    <p class="project-subtitle">
+        DirectX 12で描画基盤から制作した、海と空を舞台にした3Dフライトアクション。<br>
+        紫電改を操縦し、敵機との空戦から空母への対艦攻撃まで、
+        一連の迎撃ミッションに挑みます。
+    </p>
 
+    <div class="project-media">
+        <video
+            controls
+            preload="metadata"
+            poster="images/SkyMission.png"
+            aria-label="SkyMissionのプレイ動画"
+        >
+            <source src="videos/SkyMission.mp4" type="video/mp4">
+            お使いのブラウザは動画再生に対応していません。
+        </video>
+    </div>
 
-        <div class="project-media">
-            <img
-                src="images/dx12_ocean.png"
-                alt="DirectX 12で制作中の海と空のレンダリング"
-            >
+    <p class="project-description">
+        海・空・雲の描画に加え、航空機の操縦、敵AI、照準・ロックオン、
+        武器、HUD、ミッション進行を実装しました。
+        描画基盤とゲームロジックを分け、見た目の表現から戦闘の成立、
+        設定の調整まで一貫して取り組んでいます。
+    </p>
+
+    <div class="tech-list">
+        <span class="tech">C++20</span>
+        <span class="tech">DirectX 12 / HLSL</span>
+        <span class="tech">海・空・雲の描画</span>
+        <span class="tech">飛行モデル / 敵AI</span>
+        <span class="tech">GPU計測 / LOD</span>
+        <span class="tech">C# Native AOT / JSON</span>
+    </div>
+
+    <div class="project-links">
+        <a
+            class="project-link"
+            href="https://github.com/HazukiKojima/SkyMission"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            GitHub <small>ソースコード</small>
+        </a>
+    </div>
+
+    <div class="project-info-grid">
+
+        <div class="project-box">
+            <h4>基本情報</h4>
+
+            <p style="margin-bottom: 8px;">
+                <strong>ジャンル：</strong>
+                3Dフライトアクション
+            </p>
+
+            <p style="margin-bottom: 8px;">
+                <strong>対応環境：</strong>
+                Windows / x64 / DirectX 12
+            </p>
+
+            <p style="margin-bottom: 8px;">
+                <strong>開発環境：</strong>
+                C++20 / DirectX 12 / HLSL / C#（Native AOT）
+            </p>
+
+            <p style="margin-bottom: 8px;">
+                <strong>制作期間：</strong>
+                2026年6月 ～ 現在
+            </p>
+
+            <p style="margin-bottom: 12px;">
+                <strong>制作形態：</strong>
+                個人制作
+            </p>
+
+            <h4>実装したゲーム内容</h4>
+
+            <ul>
+                <li>
+                    紫電改の操縦と、機関砲による敵機との空戦
+                </li>
+                <li>
+                    目標選択・ロックオン・未来位置照準・
+                    誘導ミサイルによる対艦攻撃
+                </li>
+                <li>
+                    哨戒機の迎撃、空母攻撃、増援との交戦へ進むミッション
+                </li>
+                <li>
+                    戦闘HUD、着弾・撃破エフェクト、
+                    字幕・音声付きのカメラ演出
+                </li>
+                <li>
+                    タイトルから勝敗判定、再挑戦までのゲーム進行
+                </li>
+            </ul>
         </div>
 
+        <div class="project-box">
+            <h4>技術・アピールポイント</h4>
 
-        <div class="tech-list">
-            <span class="tech">DirectX 12</span>
-            <span class="tech">C++</span>
-            <span class="tech">HLSL</span>
-            <span class="tech">海面表現</span>
-            <span class="tech">HDR</span>
-        </div>
+            <ul>
+                <li>
+                    <strong>海・空・雲を組み合わせた描画表現</strong><br>
+                    HLSLで波の頂点変位・法線マップ・
+                    視線角度に応じた反射を実装。
+                    HDRテクスチャの空、厚い積雲と薄い筋雲、
+                    海霧、レトロフィルム効果を組み合わせ、
+                    作品の雰囲気を構築しました。
+                </li>
 
-        <div class="project-links">
-            <a class="project-link" href="https://github.com/HazukiKojima/SkyMission" target="_blank" rel="noopener noreferrer">
-                GitHub <small>ソースコード</small>
-            </a>
-            <!-- <a class="project-link" href="#" target="_blank" rel="noopener noreferrer">
-                Google Drive <small>実行ファイル（.exe）</small>
-            </a> -->
-        </div>
+                <li>
+                    <strong>描画負荷を抑える構成とGPU時間の計測</strong><br>
+                    海は近景を細かく遠景を粗くするメッシュとし、
+                    厚い雲は縦横1/3解像度で描画して、
+                    深度を考慮して拡大合成。
+                    視錐台カリング、艦船の3段階LOD、
+                    静止メッシュの結合も実装しました。
+                    GPUタイムスタンプで描画パスごとの
+                    処理時間を確認できるようにしています。
+                </li>
 
+                <li>
+                    <strong>飛行・敵AI・武器をつないだ戦闘処理</strong><br>
+                    推力・揚力・抗力を取り入れた飛行モデルと、
+                    接近・離脱・反転・再攻撃を行う敵AIを実装。
+                    高速で移動する弾と機体には
+                    移動OBBとの区間衝突判定を使い、
+                    命中をフレーム内の時刻順に処理します。
+                </li>
 
-
-        <div class="project-info-grid">
-
-            <div class="project-box">
-                <h4>基本情報</h4>
-                <p style="margin-bottom: 8px;"><strong>ジャンル：</strong> グラフィックス・レンダリング作品</p>
-                <p style="margin-bottom: 8px;"><strong>開発環境：</strong> DirectX 12 / C++ / HLSL</p>
-                <p style="margin-bottom: 8px;"><strong>制作期間：</strong> 2026年6月 ～ 現在</p>
-                <p style="margin-bottom: 12px;"><strong>制作形態：</strong> 個人制作</p>
-            </div>
-
-
-            <div class="project-box">
-                <h4>技術・アピールポイント</h4>
-                <ul>
-                    <li>
-                        <strong>DirectX 12による描画パイプラインの構築</strong><br>
-                        コマンドリスト、ルートシグネチャ、ディスクリプタヒープ、PSOなどを扱い、基本的な描画処理を実装。
-                    </li>
-                    <li>
-                        <strong>シェーダーによる海面表現</strong><br>
-                        法線マップやUVの変化などを利用し、海面の動きや光の反射を表現。
-                    </li>
-                    <li>
-                        <strong>SkySphereによる空の描画</strong><br>
-                        SkySphereを実装し、HDRテクスチャを利用した空の描画を実装。
-                    </li>
-                </ul>
-            </div>
-
+                <li>
+                    <strong>役割を分け、調整しやすくした設計</strong><br>
+                    描画・入力・リソースをEngine、
+                    航空機・武器・ミッションをGameへ分離。
+                    機体性能・AI・武器・演出を
+                    JSONで調整できる構成とし、
+                    C# Native AOTとの連携では、
+                    C++ヘッダーから設定バインディングと
+                    データ配置の検証コードを生成しています。
+                </li>
+            </ul>
         </div>
 
     </div>
+</div>
 
 
     <div class="main-project">
