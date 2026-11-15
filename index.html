@@ -27,9 +27,11 @@ body {
 
 .profile {
     min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    padding: 30px 0;
 
     border-bottom: 2px solid #111111;
     margin-bottom: 70px;
@@ -72,6 +74,58 @@ body {
     margin-top: 15px;
     font-size: 16px;
     color: #555555;
+}
+
+.profile-strengths {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-strengths li {
+    margin: 0 0 22px;
+    padding-left: 18px;
+    border-left: 3px solid #6d28d9;
+}
+
+.profile-strengths li:last-child {
+    margin-bottom: 0;
+}
+
+.profile-strengths strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 12px 24px;
+    margin: -40px 0 45px;
+    padding: 16px 20px;
+    background: #f5f3ff;
+    border-radius: 8px;
+}
+
+.highlights-label {
+    font-weight: bold;
+    color: #5521ab;
+}
+
+.highlights ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+}
+
+.highlights li {
+    margin: 0;
 }
 
 
@@ -248,6 +302,8 @@ li {
 
     .profile {
         min-height: 400px;
+        grid-template-columns: 1fr;
+        gap: 32px;
     }
 
     .profile h1 {
@@ -279,18 +335,49 @@ li {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 11px 18px;
+    padding: 14px 22px;
     border: 2px solid #111111;
     color: #111111;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
-    transition: background 0.2s, color 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 12%);
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 .project-link:hover {
     background: #111111;
     color: #ffffff;
+}
+
+.project-link--github {
+    background: #6d28d9;
+    border-color: #6d28d9;
+    color: #ffffff;
+}
+
+.project-link--github:hover {
+    background: #5521ab;
+    border-color: #5521ab;
+    box-shadow: 0 6px 16px rgb(109 40 217 / 25%);
+}
+
+.project-link--drive {
+    background: #137333;
+    border-color: #137333;
+    color: #ffffff;
+}
+
+.project-link--drive:hover {
+    background: #0d5726;
+    border-color: #0d5726;
+    box-shadow: 0 6px 16px rgb(19 115 51 / 25%);
+}
+
+.project-link:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 4px;
 }
 
 .project-link small {
@@ -305,6 +392,7 @@ li {
 
 
 <header class="profile">
+    <div class="profile-summary">
 
     <div class="profile-label">
         GAME PROGRAMMER PORTFOLIO
@@ -332,8 +420,24 @@ li {
     <div class="skills">
         C++ / Unreal Engine 5 / DirectX 12
     </div>
+    </div>
+
+    <ul class="profile-strengths" aria-label="自己PR">
+        <li><strong>技術力</strong>UE5で手触りと爽快感を追求し、DX12で描画基盤から実装。</li>
+        <li><strong>行動力</strong>ゲームジャムや展示イベントに積極的に参加。</li>
+        <li><strong>継続力</strong>空手を10年間続け、努力を重ねる姿勢をゲーム制作にも。</li>
+    </ul>
 
 </header>
+
+<aside class="highlights" aria-label="主な活動実績">
+    <span class="highlights-label">主な実績</span>
+    <ul>
+        <li><strong>東京ゲームショウ</strong> 出展</li>
+        <li><strong>ゲームジャム</strong> 3イベント参加</li>
+        <li><strong>学内審査会1位</strong> 3回獲得</li>
+    </ul>
+</aside>
 
 
 <section>
@@ -378,10 +482,10 @@ li {
         </div>
 
         <div class="project-links">
-            <a class="project-link" href="https://github.com/HazukiKojima/Jirai-kei-Girl-Vengeance" target="_blank" rel="noopener noreferrer">
+            <a class="project-link project-link--github" href="https://github.com/HazukiKojima/Jirai-kei-Girl-Vengeance" target="_blank" rel="noopener noreferrer">
                 GitHub <small>担当コード</small>
             </a>
-            <a class="project-link" href="https://drive.google.com/drive/folders/1hubuDaj_3Q5TH_BMIwMOSfau-Os3BsWU?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <a class="project-link project-link--drive" href="https://drive.google.com/drive/folders/1hubuDaj_3Q5TH_BMIwMOSfau-Os3BsWU?usp=drive_link" target="_blank" rel="noopener noreferrer">
                 Google Drive <small>実行ファイル（.exe）</small>
             </a>
         </div>
@@ -410,6 +514,11 @@ li {
                     <li>
                         <strong>手触りと爽快感を追求したプレイヤー操作</strong><br>
                         カメラ挙動・入力レスポンス・ヒット演出・モーション遷移などを組み合わせ、爽快感のある戦闘システムを実装
+                    </li>
+                    <li>
+                        <strong>試遊の反応を受けた操作改善</strong><br>
+                        試遊で挙がった「攻撃がつながりにくい」「カウンターの成功が分かりにくい」という課題を受け、
+                        入力受付や演出を改善。操作のつながりと成功時の分かりやすさを見直しました。
                     </li>
                     <li>
                         <strong>拡張性と保守性を意識したプログラム設計</strong><br>
@@ -456,17 +565,6 @@ li {
     ></iframe>
 </div>
 
-<div class="project-links">
-    <a
-        class="project-link"
-        href="https://youtu.be/mE0uiOVExbA"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        YouTube <small>プレイ動画を見る</small>
-    </a>
-</div>
-
     <p class="project-description">
         海・空・雲の描画に加え、航空機の操縦、敵AI、照準・ロックオン、
         武器、HUD、ミッション進行を実装しました。
@@ -485,7 +583,7 @@ li {
 
     <div class="project-links">
         <a
-            class="project-link"
+            class="project-link project-link--github"
             href="https://github.com/HazukiKojima/SkyMission"
             target="_blank"
             rel="noopener noreferrer"
@@ -502,11 +600,6 @@ li {
             <p style="margin-bottom: 8px;">
                 <strong>ジャンル：</strong>
                 3Dフライトアクション
-            </p>
-
-            <p style="margin-bottom: 8px;">
-                <strong>対応環境：</strong>
-                Windows / x64 / DirectX 12
             </p>
 
             <p style="margin-bottom: 8px;">
@@ -552,43 +645,27 @@ li {
 
             <ul>
                 <li>
-                    <strong>海・空・雲を組み合わせた描画表現</strong><br>
-                    HLSLで波の頂点変位・法線マップ・
-                    視線角度に応じた反射を実装。
-                    HDRテクスチャの空、厚い積雲と薄い筋雲、
-                    海霧、レトロフィルム効果を組み合わせ、
-                    作品の雰囲気を構築しました。
+                    <strong>RE:Doxを活用したC++／C#連携</strong><br>
+                    RE:DoxによるJSON処理を、C# Native AOTでDLL化したラッパー経由でC++から利用。
+                    C++ヘッダーから設定バインディングと検証コードを自動生成し、型・メモリ配置の整合性を確認します。
                 </li>
 
                 <li>
-                    <strong>描画負荷を抑える構成とGPU時間の計測</strong><br>
-                    海は近景を細かく遠景を粗くするメッシュとし、
-                    厚い雲は縦横1/3解像度で描画して、
-                    深度を考慮して拡大合成。
-                    視錐台カリング、艦船の3段階LOD、
-                    静止メッシュの結合も実装しました。
-                    GPUタイムスタンプで描画パスごとの
-                    処理時間を確認できるようにしています。
+                    <strong>海・空・雲の描画表現</strong><br>
+                    HLSLで波の動きや視線角度に応じた反射を実装。
+                    空・雲・海霧を組み合わせ、空戦の舞台を表現しました。
                 </li>
 
                 <li>
-                    <strong>飛行・敵AI・武器をつないだ戦闘処理</strong><br>
-                    推力・揚力・抗力を取り入れた飛行モデルと、
-                    接近・離脱・反転・再攻撃を行う敵AIを実装。
-                    高速で移動する弾と機体には
-                    移動OBBとの区間衝突判定を使い、
-                    命中をフレーム内の時刻順に処理します。
+                    <strong>描画の最適化・GPU計測</strong><br>
+                    雲の低解像度描画や艦船の3段階LODで描画負荷を軽減。
+                    GPUタイムスタンプで各描画処理の時間を計測できます。
                 </li>
 
                 <li>
-                    <strong>役割を分け、調整しやすくした設計</strong><br>
-                    描画・入力・リソースをEngine、
-                    航空機・武器・ミッションをGameへ分離。
-                    機体性能・AI・武器・演出を
-                    JSONで調整できる構成とし、
-                    C# Native AOTとの連携では、
-                    C++ヘッダーから設定バインディングと
-                    データ配置の検証コードを生成しています。
+                    <strong>調整しやすい設計</strong><br>
+                    描画などの基盤をEngine、ゲーム固有の処理をGameへ分離。
+                    機体性能・AI・武器の設定はJSONで調整できる構成にしました。
                 </li>
             </ul>
         </div>
@@ -809,6 +886,10 @@ li {
         </li>
 
         <li>
+            第25回UE5ぷちコン ゲームジャム参加
+        </li>
+
+        <li>
             九州ゲームアイランド(2026) 出展
         </li>
 
@@ -817,7 +898,15 @@ li {
         </li>
 
         <li>
+            FUKUOKA GAME SPRINT ゲームジャム参加
+        </li>
+
+        <li>
             東京ゲームショウ(2026) 出展
+        </li>
+
+        <li>
+            CEDEC九州 出展
         </li>
 
         <!-- <li>
